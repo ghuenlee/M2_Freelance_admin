@@ -73,3 +73,20 @@ export const postDelEmp = (data) => {
 		withCredentials: true
 	});
 }
+
+export const postModOffre = (data) => {
+	return axios({
+		method: 'put',
+		url: 'http://localhost:3000/admin/offre',
+		data: data,
+		withCredentials: true
+	});
+}
+export const postDelOffre = (data) => {
+	return axios({
+		method: 'delete',
+		url: 'http://localhost:3000/admin/offre',
+		data: data,
+		withCredentials: true
+	});
+}

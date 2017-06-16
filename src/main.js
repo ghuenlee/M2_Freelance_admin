@@ -33,3 +33,5 @@ new Vue({
 		App
 	}
 })
+
+export const bus = new Vue();

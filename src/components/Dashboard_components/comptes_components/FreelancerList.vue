@@ -56,7 +56,7 @@
 						Freelancer supprimé
 					</div>
 					Le freelancer <b>{{deletedData.freelancer.userID}}</b>, <b>{{deletedData.freelancer.nom}} {{deletedData.freelancer.pnom}}</b>					a été supprimé. <b>{{deletedData.offres.nModified}}</b> offre(s) modifiée(s), <b>{{deletedData.contrats.n}}</b> contrat(s)
-					supprimé(s), <b>{{deletedData.demandes.n.length}}</b> demande(s) supprimée(s)
+					supprimé(s), <b>{{deletedData.demandes.n}}</b> demande(s) supprimée(s)
 				</div>
 			</div>
 		</transition>
@@ -94,6 +94,7 @@
 			return {
 				modifiedFree: null,
 				deletedData: null,
+				freels: [],
 				freeFilter: {
 					ID: '',
 					nom: '',

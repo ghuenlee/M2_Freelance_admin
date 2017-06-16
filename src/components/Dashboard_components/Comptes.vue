@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="ui container">
-		<h1 class="ui centered header"> - Liste des comptes -
+		<h1 class="ui centered header"> - Liste des Comptes -
 		</h1>
 		<div class="ui basic segment">
 			<div class="ui center aligned container">
@@ -54,16 +54,6 @@
 				employeurs: []
 			}
 		},
-		computed: {
-			filteredEmp: function () {
-				let idPat = new RegExp(this.empFilter.ID.toLowerCase());
-				let nomPat = new RegExp(this.empFilter.nom.toLowerCase());
-				let pnomPat = new RegExp(this.empFilter.pnom.toLowerCase());
-				return this.employeurs.filter((emp) => {
-					return (idPat.test(emp.userID.toLowerCase()) && nomPat.test(emp.nom.toLowerCase()) && pnomPat.test(emp.pnom.toLowerCase()))
-				})
-			}
-		},
 		components: {
 			FreelancerList,
 			EmployeurList
@@ -112,7 +102,7 @@
 
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 	.ui.centered.header {
 		font-size: 4em;
 		margin: 0 !important;
