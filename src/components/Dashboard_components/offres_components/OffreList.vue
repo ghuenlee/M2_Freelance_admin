@@ -2,11 +2,11 @@
 	<div>
 		<div class="ui basic segment">
 			<form class="ui form">
-				<div class="four fields">
+				<div class="five fields">
 					<div class="field">
 						<div class="ui icon left labeled input">
 							<div class="ui blue label">
-								ID
+								<i class="hashtag icon"></i>
 							</div>
 							<input type="text" v-model="offreFilter.ID" placeholder="ID...">
 							<i class="search icon"></i>
@@ -15,7 +15,7 @@
 					<div class="field">
 						<div class="ui icon labeled input">
 							<div class="ui blue label">
-								Titre
+								<i class="write icon"></i>
 							</div>
 							<input type="text" v-model="offreFilter.titre" placeholder="Titre...">
 							<i class="search icon"></i>
@@ -24,7 +24,7 @@
 					<div class="field">
 						<div class="ui icon labeled input">
 							<div class="ui blue label">
-								Compétence
+								<i class="student icon"></i>
 							</div>
 							<input type="text" v-model="offreFilter.competence" placeholder="Compétence...">
 							<i class="search icon"></i>
@@ -33,13 +33,43 @@
 					<div class="field">
 						<div class="ui icon labeled input">
 							<div class="ui blue label">
-								Employeur
+								<i class="user icon"></i>
 							</div>
 							<input type="text" v-model="offreFilter.employeur" placeholder="Employeur...">
 							<i class="search icon"></i>
 						</div>
 					</div>
+					<div class="field">
+						<div class="ui icon labeled input">
+							<div class="ui blue label">
+								<i class="maps pin icon"></i>
+							</div>
+							<input type="text" v-model="offreFilter.localisation" placeholder="Localisation...">
+							<i class="search icon"></i>
+						</div>
+					</div>
 				</div>
+				<div class="ui center aligned container">
+					<div class="inline field">
+						<label> Etat de l'offre: </label>
+						<div class="ui toggle checkbox">
+							<input type="radio" v-model="offreFilter.etat" value="Ouverte">
+							<label>Ouverte</label>
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="ui toggle checkbox">
+							<input type="radio" v-model="offreFilter.etat" value="Fermée">
+							<label>Fermée</label>
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="ui toggle checkbox">
+							<input type="radio" v-model="offreFilter.etat" value="Négociation">
+							<label>En négociation</label>
+						</div>
+					</div>
+				</div>
+				<div class="ui divider"></div>
+				<div class="ui text container"> {{filteredOffres.length}} <i class="newspaper icon"></i>Offre(s) trouvée(s).</div>
 			</form>
 			<div class="ui inverted divider">
 			</div>
@@ -106,7 +136,9 @@
 					ID: '',
 					employeur: '',
 					competence: '',
-					titre: ''
+					titre: '',
+					localisation: '',
+					etat: 'Ouverte',
 				}
 			}
 		},
@@ -116,10 +148,12 @@
 				let titrePat = new RegExp(this.offreFilter.titre.toLowerCase());
 				let compPat = new RegExp(this.offreFilter.competence.toLowerCase());
 				let empPat = new RegExp(this.offreFilter.employeur.toLowerCase());
+				let localPat = new RegExp(this.offreFilter.localisation.toLowerCase());
 				return this.offres.filter((offre) => {
 					return (idPat.test(offre._id.toLowerCase()) && titrePat.test(offre.titre.toLowerCase()) && empPat.test(offre.employeur
 							.nom.toLowerCase()) &&
-						compPat.test(offre.competence.titre.toLowerCase()))
+						compPat.test(offre.competence.titre.toLowerCase()) && localPat.test(offre.localisation.toLowerCase()) &&
+						offre.etat === this.offreFilter.etat)
 				})
 			}
 		},
@@ -143,6 +177,7 @@
 				}
 			},
 			handleModified: function (data) {
+				this.deletedOffre = null;
 				this.modifiedOffre = data;
 				this.offreFilter.ID = '';
 				this.offreFilter.titre = '';
@@ -151,6 +186,7 @@
 				this.$emit('refresh');
 			},
 			handleDeleted: function (data) {
+				this.modifiedOffre = null;
 				this.deletedOffre = data;
 				console.log(data);
 				this.offreFilter.ID = '';
@@ -184,6 +220,10 @@
 
 	.ui.basic.disabled.segment {
 		padding: 0;
+	}
+
+	.ui.blue.label i {
+		margin: 0;
 	}
 
 </style>
