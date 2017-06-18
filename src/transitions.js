@@ -25,8 +25,10 @@ export const shakeAnim = function (el, done) {
 		.transition('shake', done)
 };
 
-export const fadeAnim = function (el, done) {
-	$(el)
-		.show()
-		.transition('fade', done)
+export const fadeAnimEnter = function (el, done) {
+	$(el).hide().transition('fade', done)
+};
+
+export const fadeAnimLeave = function (el, done) {
+	$(el).show().transition('fade', done)
 };

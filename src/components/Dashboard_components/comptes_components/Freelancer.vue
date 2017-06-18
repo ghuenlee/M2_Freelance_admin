@@ -114,7 +114,6 @@
 	} from '../../../Utility.js'
 	import {
 		shakeAnim,
-		fadeAnim,
 		slideAnim
 	} from '../../../transitions.js'
 
@@ -141,9 +140,6 @@
 		methods: {
 			shakeAnim: function (el, done) {
 				shakeAnim(el, done)
-			},
-			fadeAnim: function (el, done) {
-				fadeAnim(el, done)
 			},
 			slideAnim: function (el, done) {
 				slideAnim(el, done)

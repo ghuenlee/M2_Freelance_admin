@@ -90,3 +90,62 @@ export const postDelOffre = (data) => {
 		withCredentials: true
 	});
 }
+
+export const postValDemande = (data) => {
+	return axios({
+		method: 'put',
+		url: 'http://localhost:3000/admin/demande',
+		data: data,
+		withCredentials: true
+	});
+}
+export const postDelDemande = (data) => {
+	return axios({
+		method: 'delete',
+		url: 'http://localhost:3000/admin/demande',
+		data: data,
+		withCredentials: true
+	});
+}
+export const luMessage = (data) => {
+	return axios({
+		method: 'put',
+		url: 'http://localhost:3000/admin/messages',
+		data: data,
+		withCredentials: true
+	});
+}
+export const supprMessage = (data) => {
+	return axios({
+		method: 'delete',
+		url: 'http://localhost:3000/admin/messages',
+		data: data,
+		withCredentials: true
+	});
+}
+export const postMessage = (data) => {
+	return axios({
+		method: 'post',
+		url: 'http://localhost:3000/admin/messages',
+		data: data,
+		withCredentials: true
+	});
+}
+
+export const luNotification = (data) => {
+	return axios({
+		method: 'put',
+		url: 'http://localhost:3000/admin/notifications',
+		data: data,
+		withCredentials: true
+	});
+}
+
+export const supprNotification = (data) => {
+	return axios({
+		method: 'delete',
+		url: 'http://localhost:3000/admin/notifications',
+		data: data,
+		withCredentials: true
+	});
+}

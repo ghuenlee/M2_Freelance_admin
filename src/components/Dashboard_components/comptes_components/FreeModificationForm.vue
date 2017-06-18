@@ -79,7 +79,7 @@
 	import moment from 'moment'
 	import {
 		shakeAnim,
-		fadeAnim
+		fadeAnimLeave
 	} from '../../../transitions.js'
 
 	export default {
@@ -101,7 +101,7 @@
 				shakeAnim(el, done)
 			},
 			fadeAnim: function (el, done) {
-				fadeAnim(el, done)
+				fadeAnimLeave(el, done)
 			},
 			moment: function () {
 				return moment();

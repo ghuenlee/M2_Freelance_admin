@@ -1,6 +1,6 @@
 <template>
 	<div class="ui container">
-		<div class="ui blue inverted large menu">
+		<div class="ui inverted large secondary menu">
 			<div class="header item">
 				<i class="dashboard icon"></i> Tableau de bord
 			</div>
@@ -17,9 +17,15 @@
 				<i class="book icon"></i> Demandes
 			</router-link>
 			<div class="right menu">
+				<router-link tag="a" class="item" :to="{ name: 'Messages Reçus' }">
+					<i class="mail icon"></i>
+				</router-link>
+				<router-link active-class="active" tag="a" class="item" :to="{ name: 'Nouvelles Notifications' }">
+					<i class="bell icon"></i>
+				</router-link>
 				<a class="item" @click="logout">
-        <i class="sign out icon"></i> Déconnexion
-      </a>
+					<i class="sign out icon"></i> Déconnexion
+				</a>
 			</div>
 		</div>
 		<div class="ui padded segment">
@@ -85,6 +91,11 @@
 	.fade-enter,
 	.fade-leave-active {
 		opacity: 0;
+	}
+
+	.right.menu .item i.mail.icon,
+	.right.menu .item i.bell.icon {
+		margin: 0;
 	}
 
 </style>

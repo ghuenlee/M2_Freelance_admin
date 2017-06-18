@@ -1,8 +1,10 @@
 <template lang="html">
 	<div class="ui container">
-		<h1 class="ui centered header">
-			- Liste des Offres -
-		</h1>
+		<div class="ui blue inverted segment">
+			<h3 class="ui header">
+				<i class="list icon"></i> Liste des Offres
+			</h3>
+		</div>
 		<div class="ui text container">
 			Consultez la liste des offres disponibles. Vous pouvez modifier le titre/description d'une offre si elle ne répond pas aux
 			consignes. Si une offre est supprimée, tout contrat en relation le sera aussi.
@@ -53,10 +55,9 @@
 
 </script>
 
-<style lang="css">
-	.ui.centered.header {
-		font-size: 4em;
-		color: #95a5a6;
+<style lang="css" scoped>
+	.ui.header {
+		margin: 0
 	}
 
 	.ui.text.container {

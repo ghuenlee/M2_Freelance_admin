@@ -54,22 +54,22 @@
 						<label> Etat de l'offre: </label>
 						<div class="ui toggle checkbox">
 							<input type="radio" v-model="offreFilter.etat" value="Ouverte">
-							<label>Ouverte</label>
+							<label><i class="green circle outline icon"></i>Ouverte</label>
 						</div>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<div class="ui toggle checkbox">
 							<input type="radio" v-model="offreFilter.etat" value="Fermée">
-							<label>Fermée</label>
+							<label><i class="red lock icon"></i>Fermée</label>
 						</div>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<div class="ui toggle checkbox">
 							<input type="radio" v-model="offreFilter.etat" value="Négociation">
-							<label>En négociation</label>
+							<label><i class="orange wait icon"></i>En négociation</label>
 						</div>
 					</div>
 				</div>
 				<div class="ui divider"></div>
-				<div class="ui text container"> {{filteredOffres.length}} <i class="newspaper icon"></i>Offre(s) trouvée(s).</div>
+				<div class="ui text container"> <b>{{filteredOffres.length}}</b> <i class="blue large newspaper icon"></i>Offre(s) trouvée(s).</div>
 			</form>
 			<div class="ui inverted divider">
 			</div>
